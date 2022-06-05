@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:duboo="http://code.alibabatech.com/schema/dubbo"
        xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd
@@ -17,9 +17,12 @@
     <bean id="demoService" class="com.hanxiao.service.DemoServiceImpl"/>
 
     <!--服务对象-->
-    <dubbo:service interface="com.hanxiao.api.DemoService" ref="demoService" registry="N/A"/>
+    <dubbo:service interface="com.hanxiao.api.DemoService" ref="demoService"/>
 
     <!--端口协议-->
     <dubbo:protocol name="dubbo" port="20880"/>
+
+    <!--注册-->
+    <duboo:registry address="zookeeper://localhost:2181"/>
 
 </beans>
