@@ -13,12 +13,13 @@ import org.apache.dubbo.config.annotation.Service;
 public class DemoServiceImpl implements DemoService {
     @Override
     public String sayHello(String name) {
-        return name + ", 你好呀！1";
+        return name + ", 你好呀！3";
     }
 
     @Override
     public String sayHello(Person person) {
         return sayHello(person.getName());
-//        return person.getName() + "你好！1";
+//        return person.getName() + "你好！3";
+
     }
 }

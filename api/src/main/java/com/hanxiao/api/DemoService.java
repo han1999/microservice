@@ -8,4 +8,6 @@ package com.hanxiao.api;
 
 public interface DemoService {
     String sayHello(String name);
+
+    String sayHello(Person person);
 }
