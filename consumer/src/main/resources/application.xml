@@ -12,6 +12,7 @@
     <dubbo:application name="spring_provider"/>
 
     <!--引用对象-->
-    <dubbo:reference interface="com.hanxiao.api.DemoService" id="demoService" url="dubbo://localhost:20880"/>
+    <dubbo:reference interface="com.hanxiao.api.DemoService" id="demoService"/>
 
+    <dubbo:registry address="zookeeper://localhost:2181"/>
 </beans>
