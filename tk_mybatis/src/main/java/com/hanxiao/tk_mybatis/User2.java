@@ -3,6 +3,7 @@ package com.hanxiao.tk_mybatis;
 import lombok.Data;
 import tk.mybatis.mapper.annotation.KeySql;
 
+import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,12 +14,13 @@ import javax.persistence.Table;
  **/
 @Data
 @Table(name = "user")
-public class User {
+public class User2 {
     @Id
     @KeySql(useGeneratedKeys = true)
     private Integer id;
 
-    private String name;
+    @Column(name = "name")
+    private String username;
 
     private Integer age;
 }
