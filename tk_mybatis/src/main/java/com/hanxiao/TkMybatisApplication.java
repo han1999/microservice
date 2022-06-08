@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
-@ComponentScan("com.hanxiao.interceptor")
+@ComponentScan({"com.hanxiao.interceptor", "com.hanxiao.mapstruct"})
 @MapperScan("com.hanxiao.tk_mybatis")
 public class TkMybatisApplication {
 

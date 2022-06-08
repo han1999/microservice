@@ -1,6 +1,8 @@
 package com.hanxiao.tk_mybatis;
 
 
+import com.hanxiao.mapstruct.UserConverter;
+import com.hanxiao.mapstruct.UserDTO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ public class TkMybatisApplicationTests {
 
     @Autowired
     UserMapper2 userMapper2;
+
+    @Autowired
+    UserConverter userConverter;
 
     @Test
     public void testInsert() {
@@ -97,6 +102,23 @@ public class TkMybatisApplicationTests {
         example.createCriteria().andEqualTo("username", "bifujian");
         int i = userMapper2.deleteByExample(example);
         System.out.println("i = " + i);
+    }
+
+
+    @Test
+    public void testMapStruct() {
+        Example example = new Example(User.class);
+        example.createCriteria().andGreaterThan("age", 17);
+        List<User> users = userMapper.selectByExample(example);
+        System.out.println("users = " + users);
+
+        User user = users.get(0);
+        System.out.println("user = " + user);
+        UserDTO userDTO = userConverter.user2UserDTO(user);
+        System.out.println("userDTO = " + userDTO);
+
+        List<UserDTO> userDTOs = userConverter.users2UserDTOs(users);
+        System.out.println("userDTOs = " + userDTOs);
     }
 
 }
